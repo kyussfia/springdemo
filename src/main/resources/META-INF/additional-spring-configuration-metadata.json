@@ -1,0 +1,19 @@
+{
+  "properties": [
+    {
+      "name": "app.security.attempts-before-captcha",
+      "type": "java.lang.Integer",
+      "description": "Number of login attempts before require a captcha answer. Default: 3."
+    },
+    {
+      "name": "app.security.captcha.max-length",
+      "type": "java.lang.Integer",
+      "description": "Maximum length of the generated captcha token. Default: 4."
+    },
+    {
+      "name": "app.security.captcha.case-mode",
+      "type": "java.lang.String",
+      "description": "Captcha mode for the generated tokens. Available options: uppercase (all chars are uppercase), lowercase (all chars are lowercase), mixed (the characters are mixed, it depends on CaGe configuration). Default: uppercase."
+    }
+  ]
+}

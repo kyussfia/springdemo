@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+
+<head>
+    <title>Demo - Admin - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="kyussfia">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-sm-3 col-md-2 mr-0" th:href="@{/index}">Demo</a>
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" th:href="@{/logout}">Sign out</a>
+        </li>
+    </ul>
+</nav>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/index}">
+                            <img th:src="@{/images/house.svg}" class="feather" alt="house icon" title="house icon" src="/images/house.svg"/>
+                            Home
+                        </a>
+                    </li>
+                    <li sec:authorize="hasAuthority('USER')" class="nav-item">
+                        <a class="nav-link" th:href="@{/user/home}">
+                            <img th:src="@{/images/person.svg}" class="feather" alt="person icon" title="person icon" src="/images/person.svg"/>
+                            User page
+                        </a>
+                    </li>
+                    <li sec:authorize="hasAuthority('EDITOR')" class="nav-item">
+                        <a class="nav-link" th:href="@{/editor/home}">
+                            <img th:src="@{/images/pencil.svg}" class="feather" alt="pencil icon" title="pencil icon" src="/images/pencil.svg"/>
+                            Editor page
+                        </a>
+                    </li>
+                    <li sec:authorize="hasAuthority('ADMIN')" class="nav-item">
+                        <a class="nav-link active" th:href="@{/admin/home}">
+                            <img th:src="@{/images/people.svg}" class="feather" alt="people icon" title="people icon" src="/images/people.svg"/>
+                            Admin page
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+            <div>
+                <h1>Admin page</h1>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>
